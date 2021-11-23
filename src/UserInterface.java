@@ -5,7 +5,7 @@ public class UserInterface {
 
     public void printMenu() {
         System.out.print("""
-                ""Welcome to Delfinen. Choose what you want to do:
+                ""Welcome to The Dolphin. Choose what you want to do:
                                 
                 1) Create new member  
                 2) View all members 
