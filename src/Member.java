@@ -3,7 +3,7 @@ public class Member {
 
     //Personal info
     private String memberName;
-    private int memberAge;
+    private String memberAge;
 
 
     //Svømme info
@@ -19,20 +19,21 @@ public class Member {
     //payment info
     private boolean paidSubscription;
 
-public Member (String memberName, int memberAge, String subscriptionType, String swimmerType){
-    this.memberName = memberName;
-    this.subscriptionType = subscriptionType;
-    this.swimmerType = swimmerType;
+    public Member(String memberName, String memberAge, String subscriptionType) {
+        this.memberName = memberName;
+        this.subscriptionType = subscriptionType;
 
-
-    if (this.memberAge >= 18) {
-        this.ageGroup = AgeGroup.SENIOR;
-    } else {
-        this.ageGroup = AgeGroup.JUNIOR;
+        if (Integer.parseInt(memberAge) >= 18) {
+            this.ageGroup = AgeGroup.SENIOR;
+            this.memberAge = memberAge;
+        } else {
+            this.ageGroup = AgeGroup.JUNIOR;
+            this.memberAge = memberAge;
+        }
     }
 
-}
-
-
-
+    @Override
+    public String toString() {
+        return memberName + ";" + memberAge + ";" + subscriptionType + ";" + ageGroup;
+    }
 }

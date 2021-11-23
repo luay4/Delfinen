@@ -1,3 +1,5 @@
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Controller {
@@ -5,25 +7,32 @@ public class Controller {
     private boolean running = true;
     private Scanner scanner = new Scanner(System.in);
     private UserInterface ui = new UserInterface();
+    private MemberDatabase mdb = new MemberDatabase();
 
-    public void start() {
+   // public Controller() throws FileNotFoundException {
+   // }
+
+    public void start() throws FileNotFoundException {
 
 
         while (running) {
             ui.printMenu();
 
-            String input = scanner.next();
+            String input = scanner.nextLine();
             switch (input){
                 case "1":
-                    createMember();
+                    mdb.createMember();
                     break;
                 case "2":
-                    handleSubscription();
+                    viewMembers();
                     break;
                 case "3":
-                    viewAllSubscriptions();
+                    handleSubscription();
                     break;
                 case "4":
+                    viewAllSubscriptions();
+                    break;
+                case "5":
                     viewAllResults();
                     break;
                 default:
@@ -34,8 +43,17 @@ public class Controller {
 
     }
 
-    public void createMember() {
-        ui.getMemberInfo(scanner);
+    public ArrayList<String> createMember() {
+        return ui.getMemberInfo(scanner);
+    }
+
+    public void viewMembers() {
+        ArrayList<Member> members = mdb.getMembers();
+
+        for (Member member : members) {
+            ui.printMessage(member.toString());
+        }
+        System.out.println();
     }
 
     public void handleSubscription() {
