@@ -9,8 +9,8 @@ public class Controller {
     private UserInterface ui = new UserInterface();
     private MemberDatabase mdb = new MemberDatabase();
 
-   // public Controller() throws FileNotFoundException {
-   // }
+    public Controller() throws FileNotFoundException {
+    }
 
     public void start() throws FileNotFoundException {
 

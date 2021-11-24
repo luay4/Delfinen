@@ -31,7 +31,33 @@ public class UserInterface {
         memberInfo.add(memberAge);
         System.out.print("Enter subscription type: ");
         String subscriptionType = scanner.nextLine();
-        memberInfo.add(subscriptionType);
+        
+        boolean go = true;
+         
+         while (go) {
+
+             switch (subscriptionType) {
+                 case "youth":
+                     memberInfo.add(SubscriptionType.YOUTH.getType());
+                     go = false;
+                     break;
+                 case "adult":
+                     memberInfo.add(SubscriptionType.ADULT.getType());
+                     go = false;
+                     break;
+                 case "senior":
+                     memberInfo.add(SubscriptionType.SENIOR.getType());
+                     go = false;
+                     break;
+                 case "passive":
+                     memberInfo.add(SubscriptionType.PASSIVE.getType());
+                     go = false;
+                     break;
+                 default:
+                     System.out.println("Something went wrong, try again");
+             }
+         }
+        
 
         boolean loop = true;
 

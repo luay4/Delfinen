@@ -1,23 +1,16 @@
 public class Member {
 
-
     //Personal info
     private String memberName;
     private String memberAge;
-
 
     //Svømme info
     private String subscriptionType;
     private AgeGroup ageGroup;
     private String swimmerType;
 
-
-    private double personalBest;
-    private String discipline;
-
-
     //payment info
-    private boolean paidSubscription;
+    private boolean missedPayment;
 
     public Member(String memberName, String memberAge, String subscriptionType) {
         this.memberName = memberName;

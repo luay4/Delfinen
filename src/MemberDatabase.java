@@ -8,10 +8,10 @@ public class MemberDatabase {
 
     private ArrayList<Member> members = new ArrayList<>();
     private final String FILE_NAME = "members.csv";
-   // private PrintStream ps = new PrintStream(new FileOutputStream(FILE_NAME, true));
+    private PrintStream ps = new PrintStream(new FileOutputStream(FILE_NAME, true));
 
-    //public MemberDatabase() throws FileNotFoundException {
-    //}
+    public MemberDatabase() throws FileNotFoundException {
+    }
 
 
     public void createMember() throws FileNotFoundException {
