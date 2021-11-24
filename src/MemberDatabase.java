@@ -33,4 +33,35 @@ public class MemberDatabase {
     public ArrayList<Member> getMembers() {
         return members;
     }
+
+    public ArrayList<Member> getTop5FastestSwimTimesForEachDiscipline(){
+        return members;
+    }
+    
+    public ArrayList<Member> getAmountOfJuniorMembers(){
+        return members;
+    }
+
+    public ArrayList<Member> getAmountOfAdultMembers(){
+        return members;
+    }
+
+
+    public ArrayList<Member> getAmountOfSeniorMembers(){
+        return members;
+    }
+
+    public ArrayList<Member> getAmountOfPassiveMembers(){
+        return members;
+    }
+
+    public ArrayList<Member> getAmountOfActiveMembers(){
+        return members;
+    }
+
+    public ArrayList<Member> getAmountOfRestanceMembers(){
+        return members;
+    }
+
+
 }
