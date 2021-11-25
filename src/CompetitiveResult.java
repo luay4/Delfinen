@@ -7,8 +7,7 @@ public class CompetitiveResult {
         private String swimmingCategory;
         private String dateTime;
 
-    public CompetitiveResult(String competitionName, String competitionLocation, Double swimmingTime,
-                             String swimmingCategory, String dateTime){
+    public CompetitiveResult(String competitionName, String competitionLocation, Double swimmingTime, String swimmingCategory, String dateTime){
         this.competitionName = competitionName;
         this.competitionLocation = competitionLocation;
         this.swimmingTime = swimmingTime;

@@ -60,7 +60,7 @@ public class MemberDatabase {
         return members;
     }
 
-    public ArrayList<Member> getAmountOfRestanceMembers(){
+    public ArrayList<Member> getAmountOfMembersInRestance(){
         return members;
     }
 
