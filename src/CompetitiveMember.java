@@ -1,6 +1,5 @@
-public class CompetitiveMember extends Member{
+public class CompetitiveMember extends Member {
 
-    private Discipline swimmingDiscipline;
     private CompetitiveResult competitiveResults;
     private double bestLapCrawl;
     private double bestLapButterfly;
@@ -8,7 +7,14 @@ public class CompetitiveMember extends Member{
     private double bestLapBreast;
 
 
-    public CompetitiveMember(String memberName, String memberAge, String subscriptionType) {
+    public CompetitiveMember(String memberName, String memberAge, String subscriptionType,
+                             boolean isCrawlSwimmer, boolean isButterflySwimmer,
+                             boolean isBackStrokeSwimmer, boolean isBreastStrokeSwimmer) {
         super(memberName, memberAge, subscriptionType);
+        this.isCrawlSwimmer = isCrawlSwimmer;
+        this.isButterflySwimmer = isButterflySwimmer;
+        this.isBackStrokeSwimmer = isBackStrokeSwimmer;
+        this.isBreastStrokeSwimmer = isBreastStrokeSwimmer;
+
     }
 }

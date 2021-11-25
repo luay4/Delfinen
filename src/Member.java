@@ -7,10 +7,6 @@ public class Member {
     //Svømme info
     private String subscriptionType;
     private AgeGroup ageGroup;
-    private String swimmerType;
-
-    //payment info
-    private boolean missedPayment;
 
     public Member(String memberName, String memberAge, String subscriptionType) {
         this.memberName = memberName;

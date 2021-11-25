@@ -6,6 +6,8 @@ public class Subscription {
     private double seniorSubscriptionPrice = adultSubscriptionPrice * 0.75;
     private double passiveSubscriptionPrice = 500;
 
+    private boolean subscriptionPayed;
+
     public Subscription(AgeGroup ageGroup, String subscriptionType) {
 
     }

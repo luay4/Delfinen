@@ -13,7 +13,7 @@ public class Controller {
     }
 
     public void start() throws FileNotFoundException {
-
+        ui.printWelcome();
 
         while (running) {
             ui.printMenu();
@@ -35,6 +35,10 @@ public class Controller {
                 case "5":
                     viewAllResults();
                     break;
+                case "0":
+                    running = false;
+                    ui.printMessage("Shutting down");
+                    break;
                 default:
                     System.out.println("Cannot do that");
             }
@@ -49,7 +53,7 @@ public class Controller {
 
     public void viewMembers() {
         ArrayList<Member> members = mdb.getMembers();
-
+        ui.printMessage("All members: ");
         for (Member member : members) {
             ui.printMessage(member.toString());
         }
@@ -67,4 +71,6 @@ public class Controller {
     public void viewAllResults() {
 
     }
+
+
 }

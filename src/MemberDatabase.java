@@ -6,11 +6,12 @@ import java.util.ArrayList;
 public class MemberDatabase {
 
 
-    private ArrayList<Member> members = new ArrayList<>();
-    private final String FILE_NAME = "members.csv";
-    private PrintStream ps = new PrintStream(new FileOutputStream(FILE_NAME, true));
+    private ArrayList<Member> members;
+    private ArrayList<CompetitiveMember> competitiveMembers;
+    private FileHandler fh = new FileHandler();
 
     public MemberDatabase() throws FileNotFoundException {
+        members = fh.readFromFile();
     }
 
 
@@ -20,12 +21,12 @@ public class MemberDatabase {
         if (memberInfo.get(3).equals("n")) {
             Member member = new Member(memberInfo.get(0), memberInfo.get(1), memberInfo.get(2));
             members.add(member);
-           // ps.println(member);
+            fh.writeToFile(member);
         } else {
-            CompetitiveMember competitiveMember = new CompetitiveMember(memberInfo.get(0),
+            /*CompetitiveMember competitiveMember = new CompetitiveMember(memberInfo.get(0),
                     memberInfo.get(1), memberInfo.get(2));
             members.add(competitiveMember);
-            //ps.println(competitiveMember);
+            fh.writeToFile(competitiveMember);*/
         }
 
     }
@@ -61,6 +62,10 @@ public class MemberDatabase {
 
     public ArrayList<Member> getAmountOfRestanceMembers(){
         return members;
+    }
+
+    public ArrayList<Boolean> getMemberDisciplines(ArrayList<Boolean> disciplines) {
+        return disciplines;
     }
 
 
