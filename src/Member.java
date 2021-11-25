@@ -21,6 +21,8 @@ public class Member {
         }
     }
 
+
+
     @Override
     public String toString() {
         return memberName + ";" + memberAge + ";" + subscriptionType + ";" + ageGroup;

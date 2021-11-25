@@ -1,6 +1,12 @@
 public class CompetitiveMember extends Member {
 
     private CompetitiveResult competitiveResults;
+
+    private boolean isCrawlSwimmer;
+    private boolean isButterflySwimmer;
+    private boolean isBackStrokeSwimmer;
+    private boolean isBreastStrokeSwimmer;
+
     private double bestLapCrawl;
     private double bestLapButterfly;
     private double bestLapBackCrawl;
