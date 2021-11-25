@@ -1,5 +1,4 @@
 public class Subscription {
-    // Sikkert forkert sat op - velkommen til at slette
 
     private double juniorSubscriptionPrice = 1000;
     private double adultSubscriptionPrice = 1600;
@@ -7,10 +6,6 @@ public class Subscription {
     private double passiveSubscriptionPrice = 500;
 
     private boolean subscriptionPayed;
-
-    public Subscription(AgeGroup ageGroup, String subscriptionType) {
-
-    }
 
     public int expectedIncome() {
         return 0;

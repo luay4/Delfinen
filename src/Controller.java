@@ -61,7 +61,7 @@ public class Controller {
     }
 
     public void handleSubscription() {
-
+        
     }
 
     public void viewAllSubscriptions() {
