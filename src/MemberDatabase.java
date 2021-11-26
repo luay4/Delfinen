@@ -8,10 +8,16 @@ public class MemberDatabase {
 
     private ArrayList<Member> members;
     private ArrayList<CompetitiveMember> competitiveMembers;
+    private Team juniorTeam = new Team(AgeGroup.JUNIOR);
+    private Team seniorTeam = new Team(AgeGroup.SENIOR);
+    private ArrayList<Subscription> subscriptions = new ArrayList<>();
     private FileHandler fh = new FileHandler();
 
     public MemberDatabase() throws FileNotFoundException {
         members = fh.readFromFile();
+        competitiveMembers = fh.readFromFileCompMembers();
+        juniorTeam.addMemberToTeam(competitiveMembers);
+        seniorTeam.addMemberToTeam(competitiveMembers);
     }
 
 
@@ -22,17 +28,45 @@ public class MemberDatabase {
             Member member = new Member(memberInfo.get(0), memberInfo.get(1), memberInfo.get(2));
             members.add(member);
             fh.writeToFile(member);
+
+            Subscription subscription = new Subscription(member);
+            subscriptions.add(subscription);
         } else {
-            /*CompetitiveMember competitiveMember = new CompetitiveMember(memberInfo.get(0),
-                    memberInfo.get(1), memberInfo.get(2));
-            members.add(competitiveMember);
-            fh.writeToFile(competitiveMember);*/
+            CompetitiveMember competitiveMember = new CompetitiveMember(memberInfo.get(0),
+                    memberInfo.get(1), memberInfo.get(2), Boolean.parseBoolean(memberInfo.get(3)),
+                    Boolean.parseBoolean(memberInfo.get(4)), Boolean.parseBoolean(memberInfo.get(5)),
+                    Boolean.parseBoolean(memberInfo.get(6)));
+            competitiveMembers.add(competitiveMember);
+
+            // tilføjer competitive member til det team der passer med members aldersgruppe
+            if (Integer.parseInt(memberInfo.get(1)) < 18) {
+                juniorTeam.addTeamMember(competitiveMember);
+            } else {
+                seniorTeam.addTeamMember(competitiveMember);
+            }
+
+            fh.writeToFileComp(competitiveMember);
+
+            Subscription subscription = new Subscription(competitiveMember);
+            subscriptions.add(subscription);
         }
 
     }
 
     public ArrayList<Member> getMembers() {
         return members;
+    }
+
+    public ArrayList<CompetitiveMember> getCompetitiveMembers() {
+        return competitiveMembers;
+    }
+
+    public Team getJuniorTeam() {
+        return this.juniorTeam;
+    }
+
+    public Team getSeniorTeam() {
+        return seniorTeam;
     }
 
     public ArrayList<Member> getTop5FastestSwimTimesForEachDiscipline(){
@@ -64,9 +98,6 @@ public class MemberDatabase {
         return members;
     }
 
-    public ArrayList<Boolean> getMemberDisciplines(ArrayList<Boolean> disciplines) {
-        return disciplines;
-    }
 
 
 }

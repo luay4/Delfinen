@@ -23,4 +23,10 @@ public class CompetitiveMember extends Member {
         this.isBreastStrokeSwimmer = isBreastStrokeSwimmer;
 
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + ";" + isCrawlSwimmer + ";" + isButterflySwimmer + ";" + isBackStrokeSwimmer + ";" +
+                isBreastStrokeSwimmer;
+    }
 }

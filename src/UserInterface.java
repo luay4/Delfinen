@@ -11,9 +11,10 @@ public class UserInterface {
         System.out.print("""              
                 1) Create new member  
                 2) View all members 
-                3) Handle subscription
-                4) View all subscriptions
-                5) View all results
+                3) View teams
+                4) Handle subscription
+                5) View all subscriptions
+                6) View all results
                 0) Exit
                 
                 Enter command:  """);
@@ -33,7 +34,6 @@ public class UserInterface {
         memberInfo.add(memberAge);
 
         boolean go = true;
-        ArrayList<Boolean> disciplineChoices = new ArrayList<>();
          
          while (go) {
              System.out.print("Enter subscription type ('a' for active and 'p' for passive): ");
@@ -48,15 +48,6 @@ public class UserInterface {
                      } else {
                          memberInfo.add(SubscriptionType.SENIOR.getType());
                      }
-
-                     System.out.println("Which swimming disciplines does the member want to participate in? (y/n)");
-
-                     disciplineChoices.add(disciplineChoice("Crawl" , scanner));
-                     disciplineChoices.add(disciplineChoice("Butterfly", scanner));
-                     disciplineChoices.add(disciplineChoice("Backstroke", scanner));
-                     disciplineChoices.add(disciplineChoice("Breaststroke", scanner));
-
-
                      go = false;
                      break;
                  case "p":
@@ -73,7 +64,18 @@ public class UserInterface {
         while (loop) {
             System.out.print("Is member competitive? (y/n): ");
             String compStatus = scanner.next();
-             if (compStatus.equals("y") || compStatus.equals("n")) {
+             if (compStatus.equals("y")) {
+
+                 System.out.println("Which swimming disciplines does the member want to participate in? (y/n)");
+
+                 memberInfo.add(disciplineChoice("Crawl" , scanner));
+                 memberInfo.add(disciplineChoice("Butterfly", scanner));
+                 memberInfo.add(disciplineChoice("Backstroke", scanner));
+                 memberInfo.add(disciplineChoice("Breaststroke", scanner));
+
+                 memberInfo.add(compStatus);
+                 loop = false;
+             } else if (compStatus.equals("n")) {
                  memberInfo.add(compStatus);
                  loop = false;
              } else {
@@ -81,32 +83,28 @@ public class UserInterface {
              }
         }
 
-        System.out.println(memberName + " has been created as a member\n");
+        System.out.println(memberName + " has been created\n");
 
         return memberInfo;
     }
 
-    public boolean disciplineChoice(String discipline, Scanner scanner) {
-        System.out.println(discipline + ": ");
+    public String disciplineChoice(String discipline, Scanner scanner) {
+        System.out.print(discipline + ": ");
         boolean loop = true;
 
         while (loop) {
-            System.out.print("Crawl: ");
             String choice = scanner.next();
             if (choice.equals("y")) {
-                return true;
+                return "true";
             } else if (choice.equals("n")) {
-                return false;
+                return "false";
             } else {
                 System.out.println("Type either 'y' for yes of 'n' for no");
             }
         }
-        return false;
+        return "false";
     }
 
-    public ArrayList<Boolean> getMemberDisciplines(ArrayList<Boolean> disciplines) {
-        return disciplines;
-    }
 
 }
 

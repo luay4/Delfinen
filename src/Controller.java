@@ -27,12 +27,15 @@ public class Controller {
                     viewMembers();
                     break;
                 case "3":
-                    handleSubscription();
+                    viewTeamMembers();
                     break;
                 case "4":
-                    viewAllSubscriptions();
+                    handleSubscription();
                     break;
                 case "5":
+                    viewAllSubscriptions();
+                    break;
+                case "6":
                     viewAllResults();
                     break;
                 case "0":
@@ -53,11 +56,38 @@ public class Controller {
 
     public void viewMembers() {
         ArrayList<Member> members = mdb.getMembers();
+        ArrayList<CompetitiveMember> compMembers= mdb.getCompetitiveMembers();
+
         ui.printMessage("All members: ");
         for (Member member : members) {
             ui.printMessage(member.toString());
         }
-        System.out.println();
+        ui.printMessage("\n");
+
+        ui.printMessage("Competitive members: ");
+        for (CompetitiveMember competitiveMember : compMembers) {
+            ui.printMessage(competitiveMember.toString());
+        }
+
+        ui.printMessage("\n");
+
+    }
+
+    public void viewTeamMembers() {
+        Team juniorTeam = mdb.getJuniorTeam();
+        Team seniorTeam = mdb.getSeniorTeam();
+
+
+        ui.printMessage("Junior team:");
+        for (CompetitiveMember juniorMember : juniorTeam.getTeamMembers()) {
+            ui.printMessage(juniorMember.toString());
+        }
+
+        ui.printMessage("Senior team:");
+        for (CompetitiveMember seniorMember : seniorTeam.getTeamMembers()) {
+            ui.printMessage(seniorMember.toString());
+        }
+
     }
 
     public void handleSubscription() {
