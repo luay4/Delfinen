@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Subscription {
 
     private double juniorSubscriptionPrice = 1000;
@@ -24,7 +26,26 @@ public class Subscription {
         }
     }
 
-    public int expectedIncome() {
-        return 0;
+    public double expectedIncome(ArrayList<Member> listOfAllMembers) {
+        int juniorMembers = 0;
+        int adultMembers = 0;
+        int seniorMembers = 0;
+        int passiveMembers = 0;
+
+        ArrayList<Member> members = listOfAllMembers;
+
+        for (int i = 0; i < members.size(); i++){
+            if (members.get(i).getSubscriptonType().equals("youth")){
+                juniorMembers++;
+            } else if (members.get(i).getSubscriptonType().equals("adult")){
+                adultMembers++;
+            } else if (members.get(i).getSubscriptonType().equals("senior")){
+                seniorMembers++;
+            } else if (members.get(i).getSubscriptonType().equals("passive")) {
+                passiveMembers++;
+            }
+        }
+       return (juniorMembers * juniorSubscriptionPrice) + (seniorMembers * seniorSubscriptionPrice)
+               + (adultMembers * adultSubscriptionPrice) + (passiveMembers * passiveSubscriptionPrice);
     }
 }

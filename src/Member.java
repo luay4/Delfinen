@@ -21,7 +21,17 @@ public class Member {
         }
     }
 
+    public AgeGroup getAgeGroup(){
+        return this.ageGroup;
+    }
 
+    public int getAge(){
+        return Integer.parseInt(memberAge);
+    }
+
+    public String getSubscriptonType(){
+        return subscriptionType;
+    }
 
     @Override
     public String toString() {

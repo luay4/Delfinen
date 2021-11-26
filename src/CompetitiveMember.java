@@ -12,6 +12,8 @@ public class CompetitiveMember extends Member {
     private double bestLapBackCrawl;
     private double bestLapBreast;
 
+    private boolean isMemberOfTeam;
+
 
     public CompetitiveMember(String memberName, String memberAge, String subscriptionType,
                              boolean isCrawlSwimmer, boolean isButterflySwimmer,

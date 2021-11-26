@@ -15,6 +15,7 @@ public class Controller {
     public void start() throws FileNotFoundException {
         ui.printWelcome();
 
+
         while (running) {
             ui.printMenu();
 
